@@ -1,0 +1,40 @@
+{% extends 'main/base.html' %}
+
+{% block title %}Student Profile{% endblock %}
+
+{% block content %}
+
+<h1>Student Profile</h1>
+
+<p>Student ID: {{ student.id }}</p>
+<p>Student name: {{ student.name }}</p>
+<p>Grade: {{ student.grade }}</p>
+<p>Gender: {{ student.gender }}</p>
+<p>Birthdate: {{ student.birthdate }}</p>
+<p>Phone: {{ student.phone }}</p>
+<p>Email: {{ student.email }}</p>
+
+{% if student.photo %}
+    <p><img src="{{ student.photo.url }}" width="200" /></p>
+{% endif %}
+
+<br>
+<h3>Registered Courses</h3>
+
+<ul>
+  {% for course in courses %}
+    <li>{{ course.name }}</li>
+  {% empty %}
+    <li>No courses registered.</li>
+  {% endfor %}
+</ul>
+
+
+<br>
+
+<a href="{% url 'list_student' %}" class="btn btn-secondary">Go to Student List</a>
+
+{% endblock %}
+
+
+

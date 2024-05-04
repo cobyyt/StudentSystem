@@ -1,0 +1,39 @@
+{% extends 'main/base.html' %}
+
+{% block title %}Student List{% endblock %}
+
+{% block content %}
+
+<h1>Student List</h1>
+
+<table class="table table-striped">
+  <tr>
+    <th>Student ID</th>
+    <th>Name</th>
+    <th>Grade</th>
+    <th>Gender</th>
+    <th>Phone</th>
+    <th>Email</th>
+  </tr>
+  {% for student in students %}
+  <tr>
+    <td>{{ student.id }}</td>
+    <td>{{ student.name }}</td>
+    <td>{{ student.grade }}</td>
+    <td>{{ student.gender }}</td>
+    <td>{{ student.phone }}</td>
+    <td>{{ student.email }}</td>
+    <td><a href="{% url 'student_details' student.id %}">Details</a></td>
+  </tr>
+  {% endfor %}
+</table>
+
+<br>
+
+<a href="{% url 'dashboard' %}" class="btn btn-secondary">Back to Dashboard</a>
+
+
+{% endblock %}
+
+
+

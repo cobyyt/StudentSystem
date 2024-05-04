@@ -1,0 +1,36 @@
+{% extends 'main/base.html' %}
+
+{% block title %}Course Details{% endblock %}
+
+{% block content %}
+
+<h1>Course Details</h1>
+
+<p>Course ID: {{ course.id }}</p>
+<p>Course name: {{ course.name }}</p>
+<p>Teacher: {{ course.teacher }}</p>
+<p>Status: {{ course.status }}</p>
+<p>Created By: {{ course.created_by.username }}</p>
+<p>Created At: {{ course.created_at }}</p>
+<br>
+
+<h2>Registered Students:</h2>
+<ul>
+  {% for registration in course.courseregistration_set.all %}
+    <li>{{ registration.student.name }}</li>
+  {% empty %}
+    <li>No students registered for this course.</li>
+  {% endfor %}
+</ul>
+
+
+<br>
+
+<a href="{% url 'list_course' %}" class="btn btn-secondary">Go to Course List</a>
+
+
+
+{% endblock %}
+
+
+

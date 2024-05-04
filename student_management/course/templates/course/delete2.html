@@ -1,0 +1,28 @@
+{% extends 'main/base.html' %}
+
+{% block title %}Delete Courses{% endblock %}
+
+{% block content %}
+
+    <div class="row">
+      <div class="col-md-6 offset-md-3">
+        <h1 class="mt-5">Delete Courses</h1>
+
+        {% if course %}
+          <div class="mt-4">
+            <p>Are you sure you want to delete the course "{{ course.name }}"?</p>
+            <br>
+            <form method="post">
+              {% csrf_token %}
+              <button class="btn btn-danger" type="submit">Delete</button>
+            </form>
+          </div>
+        {% else %}
+          <p class="mt-4">Course not found.</p>
+        {% endif %}
+
+        <a href="{% url 'delete_course' %}" class="mt-4 btn btn-secondary">Back</a>
+      </div>
+    </div>
+
+{% endblock %}

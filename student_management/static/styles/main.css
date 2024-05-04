@@ -1,0 +1,51 @@
+.navbar {
+    background-color: rgb(9, 32, 65);
+
+}
+
+footer {
+    background-color: rgb(9, 32, 65);
+	color: white;
+}
+
+
+body {
+	background-color: whitesmoke;
+	color: #000000;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: "Gill Sans", sans-serif;
+}
+
+p {
+	font-size: 20px;
+}
+
+
+#total-students{
+	background-color: teal;
+}
+
+#total-courses{
+	background-color: peru;
+}
+
+#students-grade{
+	background-color: rgb(201, 239, 239);
+	color: rgb(26, 32, 37);
+}
+
+#instructions{
+	background-color: rgb(250, 235, 168);
+	color: rgb(26, 32, 37);
+}
+
+#mission{
+	background-color: rgb(230, 255, 237);
+	color: rgb(26, 32, 37);
+}
+
+#fn-menu{
+	font-size: 20px;
+}

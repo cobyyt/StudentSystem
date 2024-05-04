@@ -1,0 +1,40 @@
+{% extends 'main/base.html' %}
+
+{% block title %}Update Courses{% endblock %}
+
+{% block content %}
+
+<h1>Update information</h1>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Course ID</th>
+      <th>Name</th>
+      <th>Teacher</th>
+      <th>Status</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for course in courses %}
+    <tr>
+      <td>{{ course.id }}</td>
+      <td>{{ course.name }}</td>
+      <td>{{ course.teacher }}</td>
+      <td>{{ course.status }}</td>
+      <td><a href="{% url 'update_course2' course.id %}">Update</a></td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+</form>
+
+<br>
+
+<a href="{% url 'dashboard' %}" class="btn btn-secondary">Back to Dashboard</a>
+
+{% endblock %}
+
+
+

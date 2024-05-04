@@ -1,0 +1,120 @@
+{% extends 'main/base.html' %}
+
+{% block title %}School Activities{% endblock %}
+
+{% block content %}
+<style>
+.fade-in {
+    opacity: 0;
+    transition: opacity 0.5s ease-in;
+}
+
+.fade-in.appear {
+    opacity: 1;
+}
+
+#scrollToTopBtn {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    line-height: 50px;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    transition: opacity 0.3s ease-in-out;
+}
+
+#scrollToTopBtn:hover {
+    opacity: 0.8;
+}
+</style>
+
+<div class="container">
+    <h2 class="mt-5">School Activities</h2>
+
+    <br>
+
+    <div class="row justify-content-center">
+        <div class="col-md">
+            <h3 class="text-center mt-4">Volleyball Team</h3>
+            <img src="/media/v.jpeg" class="d-block w-100" alt="Volleyball" style="max-height: 600px;">
+            <p class="text-center fade-in">Volleyball is a team sport in which two teams of six players are separated by a net. Each team tries to score points by grounding a ball on the other team's court under organized rules.[1] It has been a part of the official program of the Summer Olympic Games since Tokyo 1964. Beach volleyball was introduced to the programme at the Atlanta 1996 Summer Olympics. The adapted version of volleyball at the Summer Paralympic Games is sitting volleyball.</p>
+        </div>
+    </div>
+    
+    <br>
+
+    <div class="row justify-content-center">
+        <div class="col-md">
+            <h3 class="text-center mt-4">Football Team</h3>
+            <img src="/media/f.avif" class="d-block w-100" alt="Football" style="max-height: 600px;">
+            <p class="text-center fade-in">Football is a family of team sports that involve, to varying degrees, kicking a ball to score a goal. Unqualified, the word football normally means the form of football that is the most popular where the word is used. Sports commonly called football include association football (known as soccer in Australia, Canada, South Africa, the United States, and sometimes in Ireland and New Zealand); Australian rules football; Gaelic football; gridiron football (specifically American football, Arena football, or Canadian football); International rules football; rugby league football; and rugby union football.[1] These various forms of football share, to varying degrees, common origins and are known as "football codes".</p>
+        </div>
+    </div>
+
+    <br>
+
+    <div class="row justify-content-center">
+        <div class="col-md">
+            <h3 class="text-center mt-4">Swimming Team</h3>
+            <img src="/media/s.jpeg" class="d-block w-100" alt="Swimming" style="max-height: 600px;">
+            <p class="text-center fade-in">Under our high intensive systematic training, our members help the club to win several times of Club Overall Championship in top 3 swimming championships.he International Swimming League (ISL) is an annual professional swimming league, established in 2019. It features a team-based competition format with fast-paced race sessions. In 2019, the regular season started in October and the Final Match was held in December.
+                Athletes with a history of breaking anti-doping rules are banned from ISL.[1]
+                In March 2022, following the Russian invasion of Ukraine, the ISL abruptly cancelled its fourth season and all competition in 2022.[2]</p>
+        </div>
+    </div>
+
+    <button id="scrollToTopBtn" onclick="scrollToTop()">&#8682;</button>
+</div>
+
+<script>
+// Function to check if an element is visible in the viewport
+function isElementInViewport(element) {
+    const rect = element.getBoundingClientRect();
+    return (
+        rect.top >= 0 &&
+        rect.left >= 0 &&
+        rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+        rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+    );
+}
+
+// Function to handle the scroll event
+function handleScroll() {
+    const fadeElements = document.querySelectorAll('.fade-in');
+    fadeElements.forEach((element) => {
+        if (isElementInViewport(element)) {
+            element.classList.add('appear');
+        }
+    });
+}
+
+// Add event listener for scroll
+window.addEventListener('scroll', handleScroll);
+
+
+// Scroll to top function
+function scrollToTop() {
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+}
+
+// Show/hide scroll-to-top button
+window.onscroll = function() {
+    var scrollToTopBtn = document.getElementById("scrollToTopBtn");
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        scrollToTopBtn.style.display = "block";
+    } else {
+        scrollToTopBtn.style.display = "none";
+    }
+};
+</script>
+{% endblock %}

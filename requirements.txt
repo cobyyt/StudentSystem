@@ -1,0 +1,9 @@
+asgiref
+Django
+django-cors-headers #to fix cross origin request issue
+PyJWT
+pytz
+sqlparse
+psycopg2-binary # SQL database
+python-dotenv # load env variable
+Pillow

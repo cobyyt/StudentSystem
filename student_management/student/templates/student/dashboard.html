@@ -1,0 +1,117 @@
+{% extends 'main/base.html' %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block content %}
+
+<div class="container">
+    <h3>Welcome to Student Management System</h3>
+    <p>Hello, {{ request.user }} :)</p>
+
+    <br>
+    <div class="row">
+        
+        <div class="col">
+            <div class="col-md">
+                <div class="card text-center text-white mb-3" id="total-students">
+                    <div class="card-header">
+                        <h4 class="card-title">Total Students</h4>
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">{{ total_students }}</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col">
+            <div class="col-md">
+                <div class="card text-center text-white mb-3" id="total-courses">
+                    <div class="card-header">
+                        <h4 class="card-title">Total Courses</h4>
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">{{ total_courses }}</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col">
+            <div class="col-md">
+            </div>
+        </div>
+
+        <div class="col">
+            <div class="col-md">
+                <div class="card mb-3" id="students-grade">
+                    <div class="card-header">
+                        <h4 class="card-title text-center">Students in Each Grade</h4>
+                    </div>
+                    <div class="card-body">
+                        <table class="table table-sm">
+                            <tbody>
+                                <tr>
+                                    <td>Grade 1</td>
+                                    <td>{{ students_grade1 }}</td>
+                                </tr>
+                                <tr>
+                                    <td>Grade 2</td>
+                                    <td>{{ students_grade2 }}</td>
+                                </tr>
+                                <tr>
+                                    <td>Grade 3</td>
+                                    <td>{{ students_grade3 }}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+    <br>
+    <div class="row">
+        <div class="col-md-6">
+            <h4>Our Students</h4>
+            <div class="card card-body list_group"  id="fn-menu">
+                <a class="list-group-item list-group-item-action list-group-item-light" href="{% url 'add_student' %}">Add New Students</a>
+                <a class="list-group-item list-group-item-action list-group-item-light" href="{% url 'list_student' %}">List all Students</a>
+                <a class="list-group-item list-group-item-action list-group-item-light" href="{% url 'search_student' %}">Search Students</a>
+                <a class="list-group-item list-group-item-action list-group-item-light" href="{% url 'update_student' %}">Update Students</a>
+                <a class="list-group-item list-group-item-action list-group-item-light" href="{% url 'delete_student' %}">Delete Students</a>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <h4>Our Courses</h4>
+            <div class="card card-body list_group"  id="fn-menu">              
+                <a class="list-group-item list-group-item-action list-group-item-light" href="{% url 'add_course' %}">Add New Courses</a>
+                <a class="list-group-item list-group-item-action list-group-item-light" href="{% url 'list_course' %}">List all Courses</a>
+                <a class="list-group-item list-group-item-action list-group-item-light" href="{% url 'search_course' %}">Search Courses</a>
+                <a class="list-group-item list-group-item-action list-group-item-light" href="{% url 'update_course' %}">Update Courses</a>
+                <a class="list-group-item list-group-item-action list-group-item-light" href="{% url 'delete_course' %}">Delete Courses</a>   
+            </div>
+        </div>
+    </div>
+
+    <br>
+    <div class="row">
+        <div class="col-md-6">
+            <h4>Course Registration</h4>
+            <div class="card card-body list_group"  id="fn-menu">
+                <a class="list-group-item list-group-item-action list-group-item-light" href="{% url 'course_registration' %}">Register Courses</a>
+            </div>
+        </div>
+        <div class="col-md-6">
+
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+
+

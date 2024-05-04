@@ -1,0 +1,56 @@
+{% extends 'main/base.html' %}
+
+{% block title %}Search Courses{% endblock %}
+
+{% block content %}
+
+<h1>Search Courses</h1>
+
+<form method="post" action="{% url 'search_course' %}">
+  {% csrf_token %}
+  <div class="input-group mb-3">
+      <input type="text" class="form-control" name="search_query" placeholder="Enter search query">
+      <div class="input-group-append">
+          <button class="btn btn-primary" type="submit">Search</button>
+      </div>
+  </div>
+</form>
+
+{% if count == 0 %}
+<h2>No matching records</h2>
+{% else %}
+<h2>{{ count }} records matched</h2>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Course ID</th>
+      <th>Name</th>
+      <th>Teacher</th>
+      <th>Status</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for course in courses %}
+    <tr>
+      <td>{{ course.id }}</td>
+      <td>{{ course.name }}</td>
+      <td>{{ course.teacher }}</td>
+      <td>{{ course.status }}</td>
+      <td><a href="{% url 'course_details' course.id %}" class="btn btn-success">Details</a></td>
+      <td><a href="{% url 'update_course2' course.id %}" class="btn btn-warning">Update</a></td>
+      <td><a href="{% url 'delete_course2' course.id %}" class="btn btn-danger">Delete</a></td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endif %}
+
+<br>
+
+<a href="{% url 'dashboard' %}" class="btn btn-secondary">Back to Dashboard</a>
+
+{% endblock %}
+
+
+
